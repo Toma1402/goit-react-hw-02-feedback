@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
-import { FeedbackForm, FeedbackTitle } from './App.styled';
+import { Notification } from './Notification/Notification';
+import { FeedbackForm, FeedbackTitle, StatsTitle } from './App.styled';
 export class App extends Component {
   state = {
     good: 0,
@@ -29,7 +30,7 @@ export class App extends Component {
   };
   countPositiveFeedbackPercentage = () => {
     let positiveValue = (this.state.good / this.countTotalFeedback()) * 100;
-    return Math.round(positiveValue);
+    return Math.round(positiveValue) || 0;
   };
   render() {
     return (
@@ -40,14 +41,18 @@ export class App extends Component {
           onBadMark={this.onBadMark}
           onNeutralMark={this.onNeutralMark}
         />
-        <h2>Statistics</h2>
-        <Statistics
-          total={this.countTotalFeedback()}
-          good={this.state.good}
-          bad={this.state.bad}
-          neutral={this.state.neutral}
-          positiveValue={this.countPositiveFeedbackPercentage()}
-        />
+        <StatsTitle>Statistics</StatsTitle>
+        {this.countTotalFeedback() ? (
+          <Statistics
+            total={this.countTotalFeedback()}
+            good={this.state.good}
+            bad={this.state.bad}
+            neutral={this.state.neutral}
+            positiveValue={this.countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          <Notification />
+        )}
       </FeedbackForm>
     );
   }

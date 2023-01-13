@@ -8,5 +8,7 @@ export const StatsList = styled.ul`
   margin-bottom: 30px;
   font-size: 17px;
   font-weight: 500;
+  text-align: start;
+  margin-left: 50px;
 `;
 export const StatsItem = styled.li``;

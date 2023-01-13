@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 export const BtnList = styled.div`
   display: flex;
-  gap: 16px;
-  padding-left: 10px;
+  gap: 20px;
+  justify-content: center;
   margin-bottom: 30px;
 `;
 export const Btn = styled.button`
