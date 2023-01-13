@@ -1,5 +1,5 @@
-import { Btn, BtnList } from './Marks.styled';
-export const Marks = ({ onGoodMark, onNeutralMark, onBadMark }) => (
+import { Btn, BtnList } from './FeedbackOptions.styled';
+export const FeedbackOptions = ({ onGoodMark, onNeutralMark, onBadMark }) => (
   <BtnList>
     <Btn onClick={onGoodMark}>Good</Btn>
     <Btn onClick={onNeutralMark}>Neutral</Btn>
